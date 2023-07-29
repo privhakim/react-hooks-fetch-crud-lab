@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import AdminNavBar from "./AdminNavBar";
-import QuestionForm from "./QuestionForm";
-import QuestionList from "./QuestionList";
+import React from "react";
 
-function App() {
-  const [page, setPage] = useState("List");
-
+function AdminNavBar({ onChangePage }) {
   return (
-    <main>
-      <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm /> : <QuestionList />}
-    </main>
+    <nav>
+      <button onClick={() => onChangePage("Form")}>New Question</button>
+      <button onClick={() => onChangePage("List")}>View Questions</button>
+    </nav>
   );
 }
 
-export default App;
+export default AdminNavBar;

@@ -9,6 +9,15 @@ function QuestionItem({ question }) {
     </option>
   ));
 
+  const handleDelete = () => {
+    fetch(`http://localhost:4000/questions/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      // Remove the question from the list of questions in state
+      // This is left as an exercise for you to implement
+    });
+  };
+
   return (
     <li>
       <h4>Question {id}</h4>
@@ -17,7 +26,7 @@ function QuestionItem({ question }) {
         Correct Answer:
         <select defaultValue={correctIndex}>{options}</select>
       </label>
-      <button>Delete Question</button>
+      <button onClick={handleDelete}>Delete Question</button>
     </li>
   );
 }
